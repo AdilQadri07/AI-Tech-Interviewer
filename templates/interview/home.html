@@ -1,0 +1,404 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Tech Interviewer</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url("{% static 'bg.jpg' %}");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .tech-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
+            margin-bottom: 30px;
+        }
+
+        .tech-header {
+            background: linear-gradient(135deg, #e8f0ff, #f2ecff);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tech-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #2563eb;
+        }
+
+        .tech-title {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .tech-rating {
+            color: #ff9800;
+            font-size: 14px;
+        }
+
+        .tech-sub {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .tech-body {
+            padding: 22px;
+        }
+
+        .meta {
+            display: flex;
+            gap: 35px;
+            font-size: 14px;
+            margin-bottom: 14px;
+            color: #444;
+        }
+
+        .meta i {
+            color: #2563eb;
+            margin-right: 5px;
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #eef3ff;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 4px 4px 0 0;
+            color: #1a4fff;
+        }
+
+        .start-btn {
+            background: #2563eb;
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .start-btn:hover {
+            background: #1e4fd1;
+            color: #fff;
+        }
+
+        .navbar-modern {
+            background: linear-gradient(90deg, #0f172a, #1e293b);
+            padding: 18px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-title {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-tagline {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .btn-logout {
+            padding: 8px 20px;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 198, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar-modern">
+    <div class="container nav-content">
+
+        <div class="brand-section">
+            <div class="brand-title">AI Tech Interviewer</div>
+            <div class="brand-tagline">Practice. Perform. Get Evaluated.</div>
+        </div>
+
+        <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+
+    </div>
+</nav>
+
+
+<div class="container py-5">
+
+<div class="tech-card" data-aos="fade-up">
+    <div class="tech-header">
+        <div class="tech-icon"><i class="fa-brands fa-html5"></i></div>
+        <div>
+            <div class="tech-title">HTML <span class="tech-rating">★ 98</span></div>
+            <div class="tech-sub">Web structure & fundamentals</div>
+        </div>
+    </div>
+    <div class="tech-body">
+        <div class="meta">
+            <div><i class="fa-solid fa-layer-group"></i> frontend</div>
+            <div><i class="fa-solid fa-users"></i> 10 Questions</div>
+            <div><i class="fa-solid fa-code"></i> language</div>
+        </div>
+        <strong>Topics Covered:</strong><br>
+        <span class="chip">Tags</span>
+        <span class="chip">Forms</span>
+        <span class="chip">SEO</span>
+
+        <div class="d-flex justify-content-end mt-3">
+            <a href="{% url 'language_interview' 'HTML' %}" class="start-btn">Start Interview →</a>
+        </div>
+    </div>
+</div>
+
+<div class="tech-card" data-aos="fade-up">
+    <div class="tech-header">
+        <div class="tech-icon"><i class="fa-brands fa-css3-alt"></i></div>
+        <div>
+            <div class="tech-title">CSS <span class="tech-rating">★ 97</span></div>
+            <div class="tech-sub">Layouts & responsiveness</div>
+        </div>
+    </div>
+    <div class="tech-body">
+        <div class="meta">
+            <div><i class="fa-solid fa-layer-group"></i> frontend</div>
+            <div><i class="fa-solid fa-users"></i> 10 Questions</div>
+            <div><i class="fa-solid fa-code"></i> language</div>
+        </div>
+        <strong>Topics Covered:</strong><br>
+        <span class="chip">Flexbox</span>
+        <span class="chip">Grid</span>
+        <span class="chip">Animations</span>
+
+        <div class="d-flex justify-content-end mt-3">
+            <a href="{% url 'language_interview' 'CSS' %}" class="start-btn">Start Interview →</a>
+        </div>
+    </div>
+</div>
+
+<div class="tech-card" data-aos="fade-up">
+    <div class="tech-header">
+        <div class="tech-icon"><i class="fa-brands fa-js"></i></div>
+        <div>
+            <div class="tech-title">JavaScript <span class="tech-rating">★ 99</span></div>
+            <div class="tech-sub">Logic & DOM handling</div>
+        </div>
+    </div>
+    <div class="tech-body">
+        <div class="meta">
+            <div><i class="fa-solid fa-layer-group"></i> frontend</div>
+            <div><i class="fa-solid fa-users"></i> 10 Questions</div>
+            <div><i class="fa-solid fa-code"></i> language</div>
+        </div>
+        <strong>Topics Covered:</strong><br>
+        <span class="chip">ES6</span>
+        <span class="chip">Async</span>
+        <span class="chip">DOM</span>
+
+        <div class="d-flex justify-content-end mt-3">
+            <a href="{% url 'language_interview' 'JavaScript' %}" class="start-btn">Start Interview →</a>
+        </div>
+    </div>
+</div>
+
+<div class="tech-card" data-aos="fade-up">
+    <div class="tech-header">
+        <div class="tech-icon"><i class="fa-brands fa-python"></i></div>
+        <div>
+            <div class="tech-title">Python <span class="tech-rating">★ 99</span></div>
+            <div class="tech-sub">High-level programming language</div>
+        </div>
+    </div>
+    <div class="tech-body">
+        <div class="meta">
+            <div><i class="fa-solid fa-server"></i> backend</div>
+            <div><i class="fa-solid fa-users"></i> 10 Questions</div>
+            <div><i class="fa-solid fa-code"></i> language</div>
+        </div>
+        <strong>Topics Covered:</strong><br>
+        <span class="chip">OOP</span>
+        <span class="chip">DSA</span>
+        <span class="chip">Exceptions</span>
+
+        <div class="d-flex justify-content-end mt-3">
+            <a href="{% url 'language_interview' 'Python' %}" class="start-btn">Start Interview →</a>
+        </div>
+    </div>
+</div>
+
+<div class="tech-card" data-aos="fade-up">
+    <div class="tech-header">
+        <div class="tech-icon"><i class="fa-solid fa-leaf"></i></div>
+        <div>
+            <div class="tech-title">Django <span class="tech-rating">★ 97</span></div>
+            <div class="tech-sub">Python web framework</div>
+        </div>
+    </div>
+    <div class="tech-body">
+        <div class="meta">
+            <div><i class="fa-solid fa-server"></i> backend</div>
+            <div><i class="fa-solid fa-users"></i> 10 Questions</div>
+            <div><i class="fa-solid fa-code"></i> framework</div>
+        </div>
+        <strong>Topics Covered:</strong><br>
+        <span class="chip">Models</span>
+        <span class="chip">Views</span>
+        <span class="chip">Auth</span>
+
+        <div class="d-flex justify-content-end mt-3">
+            <a href="{% url 'language_interview' 'Django' %}" class="start-btn">Start Interview →</a>
+        </div>
+    </div>
+</div>
+
+<div class="tech-card" data-aos="fade-up">
+    <div class="tech-header">
+        <div class="tech-icon"><i class="fa-brands fa-node-js"></i></div>
+        <div>
+            <div class="tech-title">Node.js <span class="tech-rating">★ 96</span></div>
+            <div class="tech-sub">JavaScript runtime</div>
+        </div>
+    </div>
+    <div class="tech-body">
+        <div class="meta">
+            <div><i class="fa-solid fa-server"></i> backend</div>
+            <div><i class="fa-solid fa-users"></i> 10 Questions</div>
+            <div><i class="fa-solid fa-code"></i> runtime</div>
+        </div>
+        <strong>Topics Covered:</strong><br>
+        <span class="chip">Express</span>
+        <span class="chip">APIs</span>
+        <span class="chip">Async</span>
+
+        <div class="d-flex justify-content-end mt-3">
+            <a href="{% url 'language_interview' 'NodeJS' %}" class="start-btn">Start Interview →</a>
+        </div>
+    </div>
+</div>
+
+<div class="tech-card" data-aos="fade-up">
+    <div class="tech-header">
+        <div class="tech-icon"><i class="fa-solid fa-database"></i></div>
+        <div>
+            <div class="tech-title">MySQL <span class="tech-rating">★ 95</span></div>
+            <div class="tech-sub">Relational database</div>
+        </div>
+    </div>
+    <div class="tech-body">
+        <div class="meta">
+            <div><i class="fa-solid fa-database"></i> database</div>
+            <div><i class="fa-solid fa-users"></i> 10 Questions</div>
+            <div><i class="fa-solid fa-code"></i> SQL</div>
+        </div>
+        <strong>Topics Covered:</strong><br>
+        <span class="chip">Joins</span>
+        <span class="chip">Indexes</span>
+        <span class="chip">Queries</span>
+
+        <div class="d-flex justify-content-end mt-3">
+            <a href="{% url 'language_interview' 'MySQL' %}" class="start-btn">Start Interview →</a>
+        </div>
+    </div>
+</div>
+
+<div class="tech-card" data-aos="fade-up">
+    <div class="tech-header">
+        <div class="tech-icon"><i class="fa-solid fa-database"></i></div>
+        <div>
+            <div class="tech-title">PostgreSQL <span class="tech-rating">★ 96</span></div>
+            <div class="tech-sub">Advanced SQL database</div>
+        </div>
+    </div>
+    <div class="tech-body">
+        <div class="meta">
+            <div><i class="fa-solid fa-database"></i> database</div>
+            <div><i class="fa-solid fa-users"></i> 10 Questions</div>
+            <div><i class="fa-solid fa-code"></i> SQL</div>
+        </div>
+        <strong>Topics Covered:</strong><br>
+        <span class="chip">Indexes</span>
+        <span class="chip">CTE</span>
+        <span class="chip">Performance</span>
+
+        <div class="d-flex justify-content-end mt-3">
+            <a href="{% url 'language_interview' 'PostgreSQL' %}" class="start-btn">Start Interview →</a>
+        </div>
+    </div>
+</div>
+
+<div class="tech-card" data-aos="fade-up">
+    <div class="tech-header">
+        <div class="tech-icon"><i class="fa-solid fa-database"></i></div>
+        <div>
+            <div class="tech-title">MongoDB <span class="tech-rating">★ 94</span></div>
+            <div class="tech-sub">NoSQL document database</div>
+        </div>
+    </div>
+    <div class="tech-body">
+        <div class="meta">
+            <div><i class="fa-solid fa-database"></i> database</div>
+            <div><i class="fa-solid fa-users"></i> 10 Questions</div>
+            <div><i class="fa-solid fa-code"></i> NoSQL</div>
+        </div>
+        <strong>Topics Covered:</strong><br>
+        <span class="chip">Aggregation</span>
+        <span class="chip">Indexes</span>
+        <span class="chip">Schema</span>
+
+        <div class="d-flex justify-content-end mt-3">
+            <a href="{% url 'language_interview' 'MongoDB' %}" class="start-btn">Start Interview →</a>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({
+    duration:800,
+    once:true
+});
+</script>
+
+</body>
+</html>
